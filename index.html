@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Mercado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold mb-4">Mi Lista de Mercado</h1>
+        <form id="formulario" class="flex mb-4">
+            <input type="text" id="item" placeholder="Agregar un elemento" class="flex-1 mr-2 p-2 rounded shadow-sm">
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                Agregar
+            </button>
+        </form>
+        <!-- Lista de elementos -->
+        <ul id="lista" class="py-4">
+            <!-- Los elementos de la lista se agregarán aquí -->
+        </ul>
+        <!-- Botón de Compartir en WhatsApp -->
+        <button id="btnCompartirWhatsApp" class="bg-green-500 text-white p-2 rounded hover:bg-green-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16.293 7.293a1 1 0 00-1.32-.083l-3.95 2.45a1 1 0 00-.98-.008l-4.057 2.565a1 1 0 00-.02 1.664l2.95 2.687a1 1 0 001.32-.083l4.044-2.52a1 1 0 00.98.008l4.056-2.565a1 1 0 00.02-1.664l-2.95-2.687a1 1 0 00-.08-1.32z" />
+            </svg>
+            Compartir
+        </button>
+
+        <!-- Botón de Limpiar lista -->
+        <button id="btnLimpiarLista" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            Limpiar lista
+        </button>
+
+        <!-- Campo oculto para almacenar la lista -->
+        <input type="hidden" id="listaOculta">
+    </div>
+
+    <!-- Modal de Edición -->
+    <div id="modalEditar" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="modal-container bg-white w-1/2 p-4 rounded shadow-lg">
+            <h2 class="text-2xl font-bold mb-4">Editar Elemento</h2>
+            <input type="text" id="nuevoNombre" placeholder="Nuevo nombre" class="w-full p-2 rounded shadow-sm">
+            <div class="mt-4 flex justify-end">
+                <button id="btnGuardar" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Guardar</button>
+                <button id="btnCancelar"
+                    class="bg-gray-300 text-gray-700 p-2 rounded ml-2 hover:bg-gray-400">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación para Limpiar Lista -->
+    <div id="modalConfirmacion" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="modal-container bg-white w-1/2 mx-auto p-4 rounded shadow-lg">
+            <!-- Contenido del modal -->
+            <h2 class="text-2xl font-bold mb-4">Confirmar Eliminación</h2>
+            <p>¿Estás seguro de que deseas limpiar la lista completa?</p>
+            <div class="mt-4 flex justify-end">
+                <button id="btnConfirmarEliminar"
+                    class="bg-red-500 text-white p-2 rounded hover:bg-red-600">Confirmar</button>
+                <button id="btnCancelarEliminar"
+                    class="bg-gray-300 text-gray-700 p-2 rounded ml-2 hover:bg-gray-400">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
